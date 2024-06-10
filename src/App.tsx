@@ -1,13 +1,14 @@
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from './styles/globalStyles';
 import { theme } from './styles/theme';
+import Input from './components/Input/Input';
 
 function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <p>Hello world!</p>
+        <Input />
       </ThemeProvider>
     </>
   );

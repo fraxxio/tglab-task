@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
 
   color-scheme: light dark;
   color: ${(props) => props.theme.colors.primary};
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

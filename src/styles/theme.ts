@@ -1,11 +1,11 @@
 import { DefaultTheme } from 'styled-components';
 
 const theme: DefaultTheme = {
-  borderRadius: '20px',
+  borderRadius: '8px',
 
   colors: {
     primary: '#25a69c',
-    secondary: '#242424',
+    secondary: '#22302d',
   },
 };
 
