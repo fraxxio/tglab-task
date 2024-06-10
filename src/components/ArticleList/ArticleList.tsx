@@ -1,14 +1,15 @@
 import { useEffect } from 'react';
 import { useArticles } from '../../hooks/useArticles';
 import ArticleCard from '../ArticleCard/ArticleCard';
-import { Container } from './style';
+import { Container, Error, Loading, LoadingMore } from './style';
 
 type ArticleListProps = {
   query: string;
 };
 
 export default function ArticleList({ query }: ArticleListProps) {
-  const { articles, isLoading, isError, size, setSize, hasMore } = useArticles(query);
+  const { articles, isLoading, isLoadingMore, isError, size, setSize, hasMore } =
+    useArticles(query);
 
   const handleScroll = () => {
     if (
@@ -26,14 +27,15 @@ export default function ArticleList({ query }: ArticleListProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
-  if (isError) return <div>Error loading articles...</div>;
-  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <Error>Something went wrong while loading articles.</Error>;
+  if (isLoading) return <Loading>Loading articles...</Loading>;
 
   return (
     <Container>
       {articles.map((article) => (
         <ArticleCard key={article.id} article={article} />
       ))}
+      {isLoadingMore && <LoadingMore>Loading more articles...</LoadingMore>}
     </Container>
   );
 }

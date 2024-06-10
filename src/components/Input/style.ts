@@ -25,6 +25,10 @@ export const SearchInput = styled.input`
   &:focus {
     border-color: white;
   }
+
+  &[type='search']::-webkit-search-cancel-button {
+    background: green;
+  }
 `;
 
 export const SearchIcon = styled.svg`

@@ -15,7 +15,8 @@ type Article = {
 type UseArticlesResult = {
   articles: Article[];
   isLoading: boolean;
-  isError: any; // Change `any` to the appropriate error type if known
+  isLoadingMore: boolean | undefined;
+  isError: any;
   size: number;
   setSize: (size: number | ((size: number) => number)) => void;
   hasMore: boolean;
