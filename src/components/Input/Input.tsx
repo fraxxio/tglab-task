@@ -44,7 +44,6 @@ export default function Input({ query, setQuery }: InputProps) {
           onChange={handleChange}
         />
       </SearchInputWrapper>
-      <p>{query}</p>
     </Container>
   );
 }
