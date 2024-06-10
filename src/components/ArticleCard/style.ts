@@ -7,6 +7,10 @@ export const Card = styled.a`
   text-decoration: none;
   color: ${(props) => props.theme.colors.primary};
   transition-duration: ${(props) => props.theme.transitionDuration};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   &:hover {
     box-shadow: 0 0 10px 5px ${(props) => props.theme.colors.primary};
   }
@@ -19,6 +23,7 @@ export const Thumbnail = styled.img`
   border-bottom: solid 2px ${(props) => props.theme.colors.primary};
   border-top-left-radius: ${(props) => props.theme.borderRadius};
   border-top-right-radius: ${(props) => props.theme.borderRadius};
+
   &.error {
     object-fit: contain;
   }
@@ -26,6 +31,7 @@ export const Thumbnail = styled.img`
 
 export const Title = styled.h1`
   font-size: 1.1rem;
+  padding-top: 0.5rem;
   padding-inline: 10px;
   max-height: 4rem;
   overflow: hidden;
