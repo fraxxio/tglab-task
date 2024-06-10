@@ -1,6 +1,24 @@
+import { useEffect, useState } from 'react';
+import { useDebounce } from '../../hooks/useDebounce';
 import { Container, SearchIcon, SearchInput, SearchInputWrapper } from './style';
 
-export default function Input() {
+type InputProps = {
+  query: string;
+  setQuery: React.Dispatch<React.SetStateAction<string>>;
+};
+
+export default function Input({ query, setQuery }: InputProps) {
+  const [inputValue, setInputValue] = useState(query);
+  const debouncedValue = useDebounce(inputValue);
+
+  useEffect(() => {
+    setQuery(debouncedValue);
+  }, [debouncedValue, setQuery]);
+
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    setInputValue(e.currentTarget.value);
+  };
+
   return (
     <Container>
       <SearchInputWrapper>
@@ -19,8 +37,14 @@ export default function Input() {
           <circle cx='11' cy='11' r='8' />
           <path d='m21 21-4.3-4.3' />
         </SearchIcon>
-        <SearchInput placeholder='Search articles...' type='search' />
+        <SearchInput
+          placeholder='Search articles...'
+          type='search'
+          value={inputValue}
+          onChange={handleChange}
+        />
       </SearchInputWrapper>
+      <p>{query}</p>
     </Container>
   );
 }
