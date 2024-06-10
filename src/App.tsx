@@ -5,12 +5,10 @@ import Input from './components/Input/Input';
 
 function App() {
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Input />
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Input />
+    </ThemeProvider>
   );
 }
 
